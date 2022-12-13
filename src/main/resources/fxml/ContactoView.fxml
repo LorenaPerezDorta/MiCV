@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<SplitPane fx:id="view" dividerPositions="0.3086, 0.6602" orientation="VERTICAL" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <items>
+      <TitledPane fx:id="titlepaneTelefono" animated="false" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="Teléfonos">
+         <content>
+            <HBox fx:id="hboxTelefono" prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <TableView fx:id="tableviewtelefono" editable="true" minHeight="80.0" HBox.hgrow="ALWAYS">
+                    <columns>
+                      <TableColumn fx:id="numerocolumn" prefWidth="75.0" text="Número" />
+                      <TableColumn fx:id="tipocolumn" prefWidth="75.0" text="Tipo" />
+                    </columns>
+                  </TableView>
+                  <VBox fx:id="vboxTelefono" spacing="5.0">
+                     <children>
+                        <Button fx:id="addTelefonoButton" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onAddTelefonoButton" text="Añadir" />
+                        <Button fx:id="deleteTelefonoButton" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onDeleteTelefonoButton" text="Eliminar" />
+                     </children>
+                     <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" />
+                     </padding>
+                  </VBox>
+               </children>
+            </HBox>
+         </content>
+      </TitledPane>
+      <TitledPane fx:id="titlepaneMail" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="Direcciones de Correo">
+         <content>
+            <HBox fx:id="hboxMail" prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <TableView fx:id="tableviewMail" minHeight="80.0" HBox.hgrow="ALWAYS">
+                    <columns>
+                      <TableColumn fx:id="emailcolumn" prefWidth="215.0" text="Email" />
+                    </columns>
+                  </TableView>
+                  <VBox fx:id="vboxMail" spacing="5.0">
+                     <children>
+                        <Button fx:id="addMailbutton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onAddMailAcction" text="Añadir" />
+                        <Button fx:id="deleteMailbutton" mnemonicParsing="false" onAction="#onDeleteMailAction" text="Eliminar" />
+                     </children>
+                     <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" />
+                     </padding>
+                  </VBox>
+               </children>
+            </HBox>
+         </content>
+      </TitledPane>
+      <TitledPane fx:id="titlePaneEmail" prefHeight="200.0" prefWidth="200.0" text="Web">
+         <content>
+            <HBox fx:id="hboxweb" prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <TableView fx:id="tableviewWeb" minHeight="80.0" HBox.hgrow="ALWAYS">
+                    <columns>
+                      <TableColumn fx:id="urlcolumn" prefWidth="220.0" text="URL" />
+                    </columns>
+                  </TableView>
+                  <VBox fx:id="vboxWeb" spacing="5.0">
+                     <children>
+                        <Button fx:id="addWebbutton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onAddWebAction" text="Añadir" />
+                        <Button fx:id="deleteWebbutton" mnemonicParsing="false" onAction="#onDeleteWebAction" text="Eliminar" />
+                     </children>
+                     <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" />
+                     </padding>
+                  </VBox>
+               </children>
+            </HBox>
+         </content>
+      </TitledPane>
+   </items>
+</SplitPane>
