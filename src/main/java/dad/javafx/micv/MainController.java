@@ -40,7 +40,6 @@ import javafx.stage.FileChooser.ExtensionFilter;
 
 public class MainController implements Initializable {
 	
-	//variable para que sea posible guardar el fichero abierto 
 	String openfile;
 
 	// controllers
@@ -89,7 +88,7 @@ public class MainController implements Initializable {
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 
-		personalTab.setContent(personalController.getView()); //recuerda generar setters y getter de la view en el controller
+		personalTab.setContent(personalController.getView()); 
 		contactoTab.setContent(contactoController.getView());
 		formacionTab.setContent(formacionController.getView());
 		experienciaTab.setContent(experienciaController.getView());
@@ -105,24 +104,22 @@ public class MainController implements Initializable {
     	
     	if (ov != null) {
     		
-    		personalController.personalProperty().unbind(); // desbindeo personalProperty del CV anterior
+    		personalController.personalProperty().unbind(); 
 			contactoController.contactoProperty().unbind();
 			formacionController.formacionProperty().unbind();
-			experienciaController.experienciaProperty().unbind();//no te olvides de generar getters y setters de javafx
+			experienciaController.experienciaProperty().unbind();
 			conocimientosController.habilidadesProperty().unbind();
-    		// desbindear resto de controllers
     		
     	}
 
     	if (nv != null) {
     		
-    		personalController.personalProperty().bind(nv.personalProperty()); // bindeo personalProperty del nuevo CV
+    		personalController.personalProperty().bind(nv.personalProperty()); 
 			contactoController.contactoProperty().bind(nv.contactoProperty());
 			formacionController.formacionProperty().bind(nv.formacionProperty());
-			experienciaController.experienciaProperty().bind(nv.experienciaProperty()); //crear list en la clase CV y generar getters y setters
+			experienciaController.experienciaProperty().bind(nv.experienciaProperty()); 
 			conocimientosController.habilidadesProperty().bind(nv.habilidadesProperty());
 
-    		// bindear resto de controllers
     		
     	}
     	
@@ -159,7 +156,6 @@ public class MainController implements Initializable {
 			try {
 				cv.set(JSONUtils.fromJson(cvFile, CV.class));
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 
@@ -196,21 +192,17 @@ public class MainController implements Initializable {
 
     @FXML
     void onSalirAction(ActionEvent event) {
-    	//ventana de alerta al salir 
     	Alert alert = new Alert(AlertType.CONFIRMATION);
 		alert.setTitle("Dialogo de confirmacion");
 		alert.setHeaderText("Vas a cerrar el programa");
-		alert.setContentText("¿Estás seguro?");
-		// Get the Stage.
+		alert.setContentText("ï¿½Estï¿½s seguro?");
 		Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
 
-		// Add a custom icon.
 		stage.getIcons().add(new Image(this.getClass().getResource("/images/cv64x64.png").toString()));
 		Optional<ButtonType> result = alert.showAndWait();
 		if (result.get() == ButtonType.OK) {
 			Platform.exit();
 		} else {
-			// ... user chose CANCEL or closed the dialog
 		}
     }
 	
